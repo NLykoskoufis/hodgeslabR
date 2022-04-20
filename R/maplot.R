@@ -21,7 +21,7 @@
 #' maplot(res)
 
 maplot <- function (res, foldthresh=log2(1.5), pthresh=0.10,
-                    colpal_unch="greys", colpal_incr="oranges", colpal_decr="blues", minCount=0,
+                    colpal_unch="greys", colpal_incr="reds", colpal_decr="blues", minCount=0,
                     ylim=c(-2.25,2.25), label=F, maxlabel=50, grid=F, box=T, ...) {
   
   res$densityGroup <- heatScatterDensityGroup(log10(res$baseMean),res$log2FoldChange)
@@ -44,7 +44,7 @@ maplot <- function (res, foldthresh=log2(1.5), pthresh=0.10,
       theme_hodgeslab_basic(grid=grid, box=box) +
       scale_x_log10() +
       scale_y_continuous(expand = c(0,0.05), limits = ylim) +
-      geom_point(stroke=0,size=0.75*linescale,aes(alpha=alpha)) + 
+      geom_point(stroke=0,size=1.2*linescale,aes(alpha=alpha)) + 
       xlab("number of reads (norm.)") +
       ylab("log2 fold change") +
       #geom_ribbon(aes(ymin = -foldthresh, ymax = foldthresh, fill = "white", alpha = 0.5, color=NULL)) +
